@@ -18,7 +18,7 @@ const Card = styled.div`
 `;
 
 const SearchContainer = styled.div`
-  width: 90%;
+  width: 60%;
   margin: 0px auto;
 `;
 
