@@ -7,21 +7,22 @@ export default function CharacterList() {
   const [characters, setCharacters] = useState([]);
   const [error, setError] = useState(null)
 
-  useEffect(() => {
-    // TODO: Add API Request here - must run in `useEffect`
-    //  Important: verify the 2nd `useEffect` parameter: the dependancies array!
-    axios.get('https://rickandmortyapi.com/api/character/')
-      .then(response => {
-        console.log(response)
-        setCharacters(response.data.results)
-      })
-      .catch(error => {
-        setError(error.message)
-      })
-  }, []);
+  // useEffect(() => {
+  //   // TODO: Add API Request here - must run in `useEffect`
+  //   //  Important: verify the 2nd `useEffect` parameter: the dependancies array!
+  //   axios.get('https://rickandmortyapi.com/api/character/')
+  //     .then(response => {
+  //       console.log(response)
+  //       setCharacters(response.data.results)
+  //     })
+  //     .catch(error => {
+  //       setError(error.message)
+  //     })
+  // }, []);
 
   return (
     <section className="character-list">
+      <h1>This is working</h1>
       {
         characters.map((curr, index) => {
           return (
