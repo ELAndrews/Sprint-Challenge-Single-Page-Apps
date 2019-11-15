@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import CharacterCard from "./CharacterCard";
-import { Link, Route } from 'react-router-dom';
 
 
 export default function SearchForm(props) {
@@ -8,23 +7,12 @@ export default function SearchForm(props) {
   const [searchName, setSearchName] = useState([])
 
   const handleChange = (e) => {
-    const search = e.target.value;
+    const search = e.target.value.toLowerCase();
     const result = props.characters.filter(char => {
-      return char.name.includes(search);
+      return char.name.toLowerCase().includes(search);
   });
-  console.log(result)
   setSearchName(result);
   }
-console.log(searchName)
-  // const handleSubmit = (e) => {
-  //   e.preventDefault()
-  //   const findMeName = props.characters.filter((curr, index) => {
-  //     return curr.name.includes(e)
-  //   })
-  //   setSearchName(findMeName)
-  //   console.log(findMeName)
-  //   console.log(props.characters)
-  // }
 
   return (
     <section className="search-form">
@@ -36,25 +24,16 @@ console.log(searchName)
           placeholder="Name" 
           onChange={handleChange}/>
        </label>
-       {/* <Link 
-        to={`/characters-list/search/${searchName}/find`}
-        >Find me!</Link> */}
      </form>
      {
        searchName.map((curr, index) => {
          return (
-           <CharacterCard curr={curr} index={index} />
+           <div key={index}>
+             <CharacterCard curr={curr} index={index} />
+           </div>
          )
        })
      }
-     {/* <Route 
-        exact path={`/characters-list/search/${searchName}/find`}
-        render={(props) => {
-          console.log(searchName)
-          return (
-            <CharacterCard {...props} curr={searchName} />
-          )} */}
-      
     </section>
   );
 }
