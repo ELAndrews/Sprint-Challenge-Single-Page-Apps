@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 export default function Header() {
   return (
@@ -9,7 +9,7 @@ export default function Header() {
           to="/">Home
       </NavLink>
       <NavLink
-        to="/characters-list/search">Search</NavLink>
+        to="/characters-list/search">Search by Name</NavLink>
     </header>
   );
 }

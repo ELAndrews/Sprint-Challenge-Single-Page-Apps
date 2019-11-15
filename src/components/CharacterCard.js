@@ -25,7 +25,7 @@ export default function CharacterCard(props) {
       <H3>{props.curr.name}</H3>
       <Img src={props.curr.image} alt={props.curr.name} />
       <p>Species: {props.curr.species}</p>
-      <p>Origin: {props.curr.origin.name}</p>
+      <p>Gender: {props.curr.gender}</p>
       <p>Status: {props.curr.status}</p>
     </Card>
   )
