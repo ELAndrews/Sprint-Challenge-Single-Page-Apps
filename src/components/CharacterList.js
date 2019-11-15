@@ -1,6 +1,20 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import CharacterCard from "./CharacterCard";
+import styled from 'styled-components';
+
+const Container = styled.div`
+  margin: 0px auto;
+  width: 95%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  border: 1px solid black;
+`;
+
+const Card = styled.div`
+  width: 45%;
+`;
 
 export default function CharacterList() {
   // TODO: Add useState to track data from useEffect
@@ -21,19 +35,19 @@ export default function CharacterList() {
   // }, []);
 
   return (
-    <section className="character-list">
+    <Container className="character-list">
       <h1>This is working</h1>
       {
         characters.map((curr, index) => {
           return (
-            <div key={index}>
+            <Card key={index}>
               <CharacterCard 
               curr={curr}
               index={index}/>
-            </div>
+            </Card>
           )
         })
       }
-    </section>
+    </Container>
   );
 }
