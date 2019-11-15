@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import CharacterCard from "./CharacterCard";
+import styled from 'styled-components';
 
+const Container = styled.section`
+  text-align: center;
+  margin: 0 auto 20px;
+`;
 
 export default function SearchForm(props) {
  
@@ -15,7 +20,7 @@ export default function SearchForm(props) {
   }
 
   return (
-    <section className="search-form">
+    <Container className="search-form">
      <form className="formContainer">
        <label>Name:
          <input 
@@ -34,6 +39,6 @@ export default function SearchForm(props) {
          )
        })
      }
-    </section>
+    </Container>
   );
 }
