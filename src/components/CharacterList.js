@@ -17,6 +17,11 @@ const Card = styled.div`
   width: 45%;
 `;
 
+const SearchContainer = styled.div`
+  width: 90%;
+  margin: 0px auto;
+`;
+
 export default function CharacterList() {
   // TODO: Add useState to track data from useEffect
   const [characters, setCharacters] = useState([]);
@@ -36,8 +41,17 @@ export default function CharacterList() {
 
   return (
     <Container className="character-list">
+    <Route 
+      path ="/characters-list/search"
+      render={(props) => {
+        return (
+        <SearchContainer>
+          <SearchForm 
+            characters={characters}/>
+        </SearchContainer>
+      )
+      }} />
    <br/>
-      <h1>This is working</h1>
       {
         characters.map((curr, index) => {
           return (

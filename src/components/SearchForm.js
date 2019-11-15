@@ -5,16 +5,17 @@ import { Link, Route } from 'react-router-dom';
 
 export default function SearchForm(props) {
  
-  const [searchName, setSearchName] = useState("")
+  const [searchName, setSearchName] = useState([])
 
   const handleChange = (e) => {
     const search = e.target.value;
     const result = props.characters.filter(char => {
       return char.name.includes(search);
   });
+  console.log(result)
   setSearchName(result);
   }
-
+console.log(searchName)
   // const handleSubmit = (e) => {
   //   e.preventDefault()
   //   const findMeName = props.characters.filter((curr, index) => {
@@ -39,7 +40,13 @@ export default function SearchForm(props) {
         to={`/characters-list/search/${searchName}/find`}
         >Find me!</Link> */}
      </form>
-     <CharacterCard curr={searchName} />
+     {
+       searchName.map((curr, index) => {
+         return (
+           <CharacterCard curr={curr} index={index} />
+         )
+       })
+     }
      {/* <Route 
         exact path={`/characters-list/search/${searchName}/find`}
         render={(props) => {

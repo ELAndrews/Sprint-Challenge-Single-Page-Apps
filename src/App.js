@@ -2,7 +2,6 @@ import React from "react";
 import Header from "./components/Header.js";
 import WelcomePage from "./components/WelcomePage.js";
 import CharacterList from "./components/CharacterList";
-import SearchForm from "./components/SearchForm";
 
 import { Route } from "react-router-dom";
 
@@ -12,11 +11,8 @@ export default function App() {
     <main>
       <Header />
       <Route 
-      exact path="/"
-      component={WelcomePage} />
-      <Route
-        path="/characters-list/search"
-        component={SearchForm} />
+        exact path="/"
+        component={WelcomePage} />
       <Route
         path="/characters-list"
         component={CharacterList} />
